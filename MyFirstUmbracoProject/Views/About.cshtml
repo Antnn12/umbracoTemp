@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.About>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Home.cshtml";
+}
+
+<h1>This is the about us page, but there's nothing to know about us. Stop asking, for your own good.
+D̿̍ͫ̒͐̇̍̈́͏͓͍̝O̶̢̩͚̰͎̓͟N̡̤̝̗͓̿̈́̓͌͒'̜̻̀ͧ͘T̢̫̤̪̭̠̟̟̊̽ ̧͍̼̮̳̙̣̫͍͗͆̍͆͆̍ͤͩ͜A̯͎̋ͨ͛ͪS̗͆͗ͤͣͥ̈́ͮ͐K̡͇̦̠̮̟͖̀ͬͅ
+̦̜ͮ̒ͥ̀͝Ď̸̫̫̘̩͙̐ͨ̿O͉̲͈̣͇͍̬̞̓̈ͬ͐ͨN̨̹̠̬̪͍̺̫̿̀̈́̃̂ͦ̀̉̕͡ͅͅ'̢̀̋͛̋ͩ̒̂̐҉̦̖̙̻̺͘T̬͚͖͂̐͆ͫ̾͛͌ ̷͎̱͍̻͋̾ͧ̀̌̉ͪAͧ̓ͩ̈̚͏̲̯̮̳̮ͅS̛̠̳͚̼͇̯̜ͪ̒͛͊̏ͭͥ́͠K̶̡̡̳̳͕͉̟̫̱̩̃ͭ
+͕͇̯̈́̍̑ͪ́ͫͯ͜͝͡D̃̍̎̃̋̑ͤͧͧ͏͇̬̼͙͚̰̰O̷̧̥̙̭̫̝̎̾͊ͩ͡Ṅ̵̹̮̖̲̝̩̭̤̌́̈ͪ̓'̓ͥ̅̋̈́҉̯̮̘T͈̜͓̬̣͙̰̄͋̀͗̿̅ ̴̹͙͙͖ͫ̓̀Ȃ̤̜̜͍͉̬̣̫̔͑̈ͪ̃͞ͅŠ̡̱͕͙̱͉̃ͮ̀K̴̶̵̰̤͇̖͇̓̎̍̀ͦ̍ͣ̓̈́
+ͧͧͬͨͧ͏̲̭̹́D̥͈̣̥ͧ͐ͪ̉̽ͭ̄͞O̷̫͙̺̣ͯ̑̊ͫͣǸ̬̝͔ͮ̄̎̐̒͐̈͝'͍̻̯̫̝̯̗̭̈́̇̽̿̓T̖̖͚͙̱̠̤ͥ̈ͫͥ́ ̟̺͔ͧ̇ͦ́͘Á̢̢͔͚̺̫̬͆S̹͔͍͐̾ͧ͗́͠͠K̰͕͖͎̘͚̜̝͎̈́͑
+̩̤̆̉ͫ́Ḑ̷̩̬͇ͨ͒O̪͚̖̝̥̽̔ͅN̷̴̢̜̭̠͓̼̖̘͈̂̈́͋̏̒ͦͨͯ'̨̮͈͕ͦͣ͋̆ͬͩͅT͒̄̑͗̎̓̇̽̈҉̩͈̫̀ ̾̽҉҉̺̖̼̪̼A̴͇̼̮̹͇̦̜͌ͤ͂ͬ͟S̴̪̠̣̠̠̳̲͐̃̎̆̍̍͜K̭͖̯̪̉͆̇͆͋͡
+̨̢̘̩̞̋͗͢E͊ͬͨ̃͝҉͇̬̻R͔͈̣̼͇͔̔ͤͤ̓ͫ̆̀͑ͭR̜̩͈͆̓̾̓̃͒̄̍̀͜O̱̗̬̙̩ͥ̆̂̚R̬̮̜̦͓͉̜̦ͨͬͫ̎̅̓̍̔̕O͕̝̖N̬̜̭̞̞ͅ'T̘̗̤̙̗̖̮ ͓͓̦͎̰͈A̸SK̦̯̱</h1>
+
+<h4>HOME</h4>
+@{
+	var selection = Umbraco.Content(Guid.Parse("857c2dd3-9c1c-4cde-8f56-8319491aea33"))
+    .Children()
+    .Where(x => x.IsVisible() && x.IsDocumentType("Articles"));
+}
+<ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">HOME</a>
+		</li>
+	}
+</ul>
+

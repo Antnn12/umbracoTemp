@@ -1,0 +1,51 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Articles>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Home.cshtml";
+}
+<img style="width: 20%; display: block; margin-left: auto; margin-right: auto;" src="@Model.Image.Url()">
+<h1>@Model.Value("content")</h1>
+<h4>HOME</h4>
+@{
+	var homeSelection = Umbraco.Content(Guid.Parse("857c2dd3-9c1c-4cde-8f56-8319491aea33"))
+    .Children()
+    .Where(x => x.IsVisible() && x.IsDocumentType("Articles"));
+}
+<ul>
+	@foreach (var item in homeSelection)
+	{
+		<li>
+			<a href="@item.Url()">HOME</a>
+		</li>
+	}
+</ul>
+<h4>ARTICLES</h4>
+@{
+	var articleSelection = Umbraco.Content(Guid.Parse("56784464-4fdf-4fde-95aa-5a64cd79ffe3"))
+    .Children()
+    .Where(x => x.IsVisible());
+}
+<ul>
+	@foreach (var item in articleSelection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul>
+<h4>ABOUT US</h4>
+@{
+	var selection = Umbraco.Content(Guid.Parse("857c2dd3-9c1c-4cde-8f56-8319491aea33"))
+    .Children()
+    .Where(x => x.IsVisible() && x.IsDocumentType("About"));
+}
+<ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul>
+
